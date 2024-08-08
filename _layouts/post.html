@@ -1,24 +1,26 @@
----
-layout: default
----
-<div class="page-header">
-  <h1 class="page-title">{{page.title}}</h1>
-  <span class="page-list-date">
-    <i class="fa fa-calendar-o" aria-hidden="true"></i> {{ page.date | date: "%B %-d, %Y" }}
-  </span>
-</div>
-<div class="post-container">
-  {% if page.img %}
-   <img class="post-img" src={{ "/assets/img/" | prepend: site.baseurl | append : page.img}} alt="{{page.title}}">
-  {% endif %}
-  <div class="post-content">
-    <article>
-      {% if page.author %}
-      <div class="date-byline"><span><i class="fa fa-calendar-o" aria-hidden="true"></i> {{page.date | date: '%Y, %b %d'}}&nbsp;&nbsp;&nbsp;&nbsp;</span><span><i class="fa fa-pencil-square-o" aria-hidden="true"></i> {{page.author}}</span></div>
-      {% endif %}
-      {{page.content | markdownify}}
-    </article>
-    {% include share.html %}
-    {% include disqus.html %}
-  </div>
-</div>
+<!DOCTYPE html>
+<html lang="pt-br">
+    {% include head.html %}
+    <body>
+        {% include svg-icons.html %}
+        {% include header-post.html %}
+        {% include tree-posts.html %}
+        <section class="post" itemscope itemtype="http://schema.org/BlogPosting">
+            {% if page.date %}
+                <div class="time">
+                    <time itemprop="datePublished" datetime="{{ page.date }}">{{ page.date | date_to_string }}</time>
+                </div>
+            {% endif %}
+            <h1 class="post-title" itemprop="name">{{ page.title }}</h1>
+
+            <article role="article" id="scroll" class="post-content" itemprop="articleBody">
+                {{ content }}
+            </article>
+
+            {% include share.html %}
+            {% include comments.html %}
+            {% include footer.html %}
+            {% include scripts.html %}
+        </section>
+    </body>
+</html>

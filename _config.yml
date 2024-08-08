@@ -1,52 +1,61 @@
+# Site settings
 title: GRDBJ
-description: > # this means to ignore newlines until "baseurl:"
-  Write an awesome description for your new site here. You can edit this
-  line in _config.yml. It will appear in your document head meta (for
-  Google search results) and in your feed.xml site description.
-baseurl: "/" # the subpath of your site, e.g. /blog
-url: "https://grdbj.github.io" # the base hostname & protocol for your site, e.g. http://example.com
-permalink: ':title/'
-blog_theme: dark # Or use dark
+description: "A blog about GRDBJ!"
+baseurl: "" # for test: remove string '/space-jekyll-template' to ''
+url: "https://grdbj.github.io" # for test: remove string 'http://victorvoid.github.io' to '' but in production: 'https://yourusername.github.io'
 
-# Profile information
-name: GRDBJ
-tagline: Full Stack Developer
-about-description: # Add Discription
-pic: diein.png  # Place a 200x200 picture inside /assets/img/ folder and provide the name of the file below
-
-# Contact links
-email: jihun3771@gmail.com # Add your Email address
-phone: 010-4720-3771 # Add your Phone number
-website: artemsheludko.pw # Add your website, do not add http://
-linkedin: # Add your Linkedin handle
-github: artemsheludko # Add your Github handle
-twitter: '@geumnyong_' # Add your Twitter handle
-
-# Tracker
-analytics:
-
-# Comments
-discus-identifier: # Add your Disqus identifier
-
-# Important settings
-assets:
-  sources:
-    - assets/fonts
-    - assets/img
-    - assets/js
-    - assets/stylesheets
+# User settings
+username: 
+user_title: J.H BAEK - FrontEnd
+email: jihun3771@gmail.com
+twitter_username: geumnyong_
+github_username:  grdbj
+discord_invite:  pcR4N6Ff # Example: Discord server invite gg extension like in 'https://discord.gg/cj5rg
+profile_picture: diein.png
 
 # Build settings
-exclude:
-  - Gemfile
-  - Gemfile.lock
-  - README.md
+markdown: kramdown
+highlighter: rouge
+permalink: /:title/
 
-gems:
-  - jekyll-feed
-  - jekyll-assets
-exclude:
-  - Gemfile
-  - Gemfile.lock
+# html minify
+compress_html:
+  clippings: all
+  comments: all
+  endings: []
+  profile: false
 
-include: [_pages]
+# Links to include in menu navigation
+links:
+  section_1:
+    - title: home
+      url: /
+      key_trigger: 1
+    - title: my posts
+      url: /posts
+      key_trigger: 2
+    - title: series
+      url: /series
+      key_trigger: 3
+    - title: tags
+      url: /tags
+      key_trigger: 4
+    - title: about me
+      url: /about
+      key_trigger: 5
+  section_2:
+    - title: github
+      url: http://www.github.com/grdbj
+      new_tab: true
+      key_trigger: g
+    - title: twitter
+      url: http://www.twitter.com/geumnyong_
+      key_trigger: t
+    - title: search
+      url: ""
+      key_trigger: s #WARNING: search only works with "s"
+
+# projects in header index 
+
+# exclude my node related stuff
+exclude: ['package.json', 'src', 'node_modules']
